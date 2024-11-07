@@ -1,0 +1,559 @@
+Device: cpu
+Before loading model: 2024-10-30 20:11:45.935200+00:00
+Loaded PyTorch resnet50 pretrained on ImageNet
+Device: cpu
+Before loading model: 2024-10-30 20:13:35.825332+00:00
+Loaded PyTorch resnet50 pretrained on ImageNet
+
+Loading image: 2024-10-30 20:13:44.562825+00:00
+Image transformation: 2024-10-30 20:13:44.890728+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 1
+Inference time: 0.9398 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.1044 seconds
+
+Loading image: 2024-10-30 20:13:45.986865+00:00
+Image transformation: 2024-10-30 20:13:46.005518+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 1
+Inference time: 0.7450 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0828 seconds
+
+Loading image: 2024-10-30 20:13:47.043835+00:00
+Image transformation: 2024-10-30 20:13:47.052793+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 1
+Inference time: 0.8771 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.0975 seconds
+
+Loading image: 2024-10-30 20:13:48.090949+00:00
+Image transformation: 2024-10-30 20:13:48.103232+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 1
+Inference time: 0.9906 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1101 seconds
+
+Loading image: 2024-10-30 20:13:49.158920+00:00
+Image transformation: 2024-10-30 20:13:49.172863+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 1
+Inference time: 0.8433 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.0937 seconds
+
+Loading image: 2024-10-30 20:13:50.202560+00:00
+Image transformation: 2024-10-30 20:13:50.214158+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 1
+Inference time: 0.9499 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.1055 seconds
+
+
+Loading image: 2024-10-30 20:14:01.271665+00:00
+Image transformation: 2024-10-30 20:14:01.285710+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 2
+Inference time: 0.6582 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0731 seconds
+
+Loading image: 2024-10-30 20:14:01.965184+00:00
+Image transformation: 2024-10-30 20:14:01.977874+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 2
+Inference time: 0.9786 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.1087 seconds
+
+Loading image: 2024-10-30 20:14:02.984471+00:00
+Image transformation: 2024-10-30 20:14:02.990253+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 2
+Inference time: 0.9953 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.1106 seconds
+
+Loading image: 2024-10-30 20:14:04.018860+00:00
+Image transformation: 2024-10-30 20:14:04.027912+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 2
+Inference time: 0.9697 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1077 seconds
+
+Loading image: 2024-10-30 20:14:05.036288+00:00
+Image transformation: 2024-10-30 20:14:05.044626+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 2
+Inference time: 1.0144 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.1127 seconds
+
+Loading image: 2024-10-30 20:14:06.097112+00:00
+Image transformation: 2024-10-30 20:14:06.105635+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 2
+Inference time: 0.9779 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.1087 seconds
+
+
+Loading image: 2024-10-30 20:14:17.139127+00:00
+Image transformation: 2024-10-30 20:14:17.152113+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 3
+Inference time: 0.6856 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0762 seconds
+
+Loading image: 2024-10-30 20:14:17.861616+00:00
+Image transformation: 2024-10-30 20:14:17.874254+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 3
+Inference time: 0.8121 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0902 seconds
+
+Loading image: 2024-10-30 20:14:18.711069+00:00
+Image transformation: 2024-10-30 20:14:18.717098+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 3
+Inference time: 0.9124 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.1014 seconds
+
+Loading image: 2024-10-30 20:14:19.671537+00:00
+Image transformation: 2024-10-30 20:14:19.680868+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 3
+Inference time: 0.9231 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1026 seconds
+
+Loading image: 2024-10-30 20:14:20.636647+00:00
+Image transformation: 2024-10-30 20:14:20.645057+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 3
+Inference time: 0.8529 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.0948 seconds
+
+Loading image: 2024-10-30 20:14:21.526646+00:00
+Image transformation: 2024-10-30 20:14:21.535206+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 3
+Inference time: 0.8165 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.0907 seconds
+
+
+Loading image: 2024-10-30 20:14:32.399165+00:00
+Image transformation: 2024-10-30 20:14:32.407176+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 4
+Inference time: 0.8258 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0918 seconds
+
+Loading image: 2024-10-30 20:14:33.261021+00:00
+Image transformation: 2024-10-30 20:14:33.275966+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 4
+Inference time: 0.8311 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0923 seconds
+
+Loading image: 2024-10-30 20:14:34.136582+00:00
+Image transformation: 2024-10-30 20:14:34.142330+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 4
+Inference time: 0.8513 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.0946 seconds
+
+Loading image: 2024-10-30 20:14:35.023563+00:00
+Image transformation: 2024-10-30 20:14:35.032870+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 4
+Inference time: 0.9734 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1082 seconds
+
+Loading image: 2024-10-30 20:14:36.041169+00:00
+Image transformation: 2024-10-30 20:14:36.049509+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 4
+Inference time: 0.9598 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.1066 seconds
+
+Loading image: 2024-10-30 20:14:37.044157+00:00
+Image transformation: 2024-10-30 20:14:37.052747+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 4
+Inference time: 0.8824 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.0980 seconds
+
+
+Loading image: 2024-10-30 20:14:47.983858+00:00
+Image transformation: 2024-10-30 20:14:48.000341+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 5
+Inference time: 0.9091 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.1010 seconds
+
+Loading image: 2024-10-30 20:14:48.930706+00:00
+Image transformation: 2024-10-30 20:14:48.943083+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 5
+Inference time: 0.9855 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.1095 seconds
+
+Loading image: 2024-10-30 20:14:49.965193+00:00
+Image transformation: 2024-10-30 20:14:49.971021+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 5
+Inference time: 0.9746 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.1083 seconds
+
+Loading image: 2024-10-30 20:14:50.982145+00:00
+Image transformation: 2024-10-30 20:14:50.991298+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 5
+Inference time: 0.9823 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1091 seconds
+
+Loading image: 2024-10-30 20:14:52.009470+00:00
+Image transformation: 2024-10-30 20:14:52.018128+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 5
+Inference time: 0.9584 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.1065 seconds
+
+Loading image: 2024-10-30 20:14:53.015050+00:00
+Image transformation: 2024-10-30 20:14:53.023588+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 5
+Inference time: 0.9887 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.1099 seconds
+
+
+Loading image: 2024-10-30 20:15:04.060928+00:00
+Image transformation: 2024-10-30 20:15:04.070337+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 6
+Inference time: 0.7878 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0875 seconds
+
+Loading image: 2024-10-30 20:15:04.881344+00:00
+Image transformation: 2024-10-30 20:15:04.893990+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 6
+Inference time: 0.8360 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0929 seconds
+
+Loading image: 2024-10-30 20:15:05.764271+00:00
+Image transformation: 2024-10-30 20:15:05.770214+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 6
+Inference time: 0.7237 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.0804 seconds
+
+Loading image: 2024-10-30 20:15:06.526120+00:00
+Image transformation: 2024-10-30 20:15:06.535449+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 6
+Inference time: 0.8287 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.0921 seconds
+
+Loading image: 2024-10-30 20:15:07.387233+00:00
+Image transformation: 2024-10-30 20:15:07.395548+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 6
+Inference time: 0.9324 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.1036 seconds
+
+Loading image: 2024-10-30 20:15:08.352747+00:00
+Image transformation: 2024-10-30 20:15:08.364341+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 6
+Inference time: 0.9122 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.1014 seconds
+
+
+Loading image: 2024-10-30 20:15:19.327924+00:00
+Image transformation: 2024-10-30 20:15:19.337579+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 7
+Inference time: 0.7636 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0848 seconds
+
+Loading image: 2024-10-30 20:15:20.121780+00:00
+Image transformation: 2024-10-30 20:15:20.134534+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 7
+Inference time: 0.8970 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0997 seconds
+
+Loading image: 2024-10-30 20:15:21.063519+00:00
+Image transformation: 2024-10-30 20:15:21.069493+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 7
+Inference time: 0.9233 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.1026 seconds
+
+Loading image: 2024-10-30 20:15:22.022832+00:00
+Image transformation: 2024-10-30 20:15:22.031828+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 7
+Inference time: 0.9640 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1071 seconds
+
+Loading image: 2024-10-30 20:15:23.029820+00:00
+Image transformation: 2024-10-30 20:15:23.037917+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 7
+Inference time: 0.8791 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.0977 seconds
+
+Loading image: 2024-10-30 20:15:23.951320+00:00
+Image transformation: 2024-10-30 20:15:23.959746+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 7
+Inference time: 0.7720 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.0858 seconds
+
+
+Loading image: 2024-10-30 20:15:34.784010+00:00
+Image transformation: 2024-10-30 20:15:34.794517+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 8
+Inference time: 0.6544 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0727 seconds
+
+Loading image: 2024-10-30 20:15:35.467034+00:00
+Image transformation: 2024-10-30 20:15:35.479772+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 8
+Inference time: 0.7463 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0829 seconds
+
+Loading image: 2024-10-30 20:15:36.272083+00:00
+Image transformation: 2024-10-30 20:15:36.278913+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 8
+Inference time: 0.8076 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.0897 seconds
+
+Loading image: 2024-10-30 20:15:37.123524+00:00
+Image transformation: 2024-10-30 20:15:37.132927+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 8
+Inference time: 0.9212 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1024 seconds
+
+Loading image: 2024-10-30 20:15:38.084761+00:00
+Image transformation: 2024-10-30 20:15:38.093259+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 8
+Inference time: 0.9488 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.1054 seconds
+
+Loading image: 2024-10-30 20:15:39.075706+00:00
+Image transformation: 2024-10-30 20:15:39.084189+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 8
+Inference time: 1.0068 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.1119 seconds
+
+
+Loading image: 2024-10-30 20:15:50.145527+00:00
+Image transformation: 2024-10-30 20:15:50.154246+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 9
+Inference time: 0.8555 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0951 seconds
+
+Loading image: 2024-10-30 20:15:51.035531+00:00
+Image transformation: 2024-10-30 20:15:51.048470+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 9
+Inference time: 0.8129 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0903 seconds
+
+Loading image: 2024-10-30 20:15:51.894927+00:00
+Image transformation: 2024-10-30 20:15:51.900873+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 9
+Inference time: 0.8496 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.0944 seconds
+
+Loading image: 2024-10-30 20:15:52.781656+00:00
+Image transformation: 2024-10-30 20:15:52.791079+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 9
+Inference time: 0.9410 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1046 seconds
+
+Loading image: 2024-10-30 20:15:53.764265+00:00
+Image transformation: 2024-10-30 20:15:53.772738+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 9
+Inference time: 0.9126 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.1014 seconds
+
+Loading image: 2024-10-30 20:15:54.722255+00:00
+Image transformation: 2024-10-30 20:15:54.730563+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 9
+Inference time: 0.8787 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.0976 seconds
+
+
+Loading image: 2024-10-30 20:16:05.666995+00:00
+Image transformation: 2024-10-30 20:16:05.682992+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 10
+Inference time: 0.6984 seconds
+Accuracy: 19.451%
+Argmax Pred class:Border collie
+TopK Predicted class:Border collie
+Latency: 0.0776 seconds
+
+Loading image: 2024-10-30 20:16:06.405314+00:00
+Image transformation: 2024-10-30 20:16:06.418684+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 10
+Inference time: 0.7324 seconds
+Accuracy: 18.899%
+Argmax Pred class:pop bottle, soda bottle
+TopK Predicted class:pop bottle, soda bottle
+Latency: 0.0814 seconds
+
+Loading image: 2024-10-30 20:16:07.179778+00:00
+Image transformation: 2024-10-30 20:16:07.189453+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 10
+Inference time: 0.8582 seconds
+Accuracy: 64.667%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.0954 seconds
+
+Loading image: 2024-10-30 20:16:08.081078+00:00
+Image transformation: 2024-10-30 20:16:08.090527+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 10
+Inference time: 0.9018 seconds
+Accuracy: 99.542%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.1002 seconds
+
+Loading image: 2024-10-30 20:16:09.027616+00:00
+Image transformation: 2024-10-30 20:16:09.035951+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 10
+Inference time: 0.9876 seconds
+Accuracy: 95.679%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.1097 seconds
+
+Loading image: 2024-10-30 20:16:10.058230+00:00
+Image transformation: 2024-10-30 20:16:10.066865+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 10
+Inference time: 0.7735 seconds
+Accuracy: 88.961%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.0859 seconds
+
+Total trainable parameters: 25557032
+Loaded PyTorch resnet50 pretrained on ImageNet
+Total FLOPs: 247473728
