@@ -1,6 +1,6 @@
 import ast
 import argparse
-
+import json
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--file', dest='file_name', type=str, help='Add file_name')
@@ -11,6 +11,9 @@ args = parser.parse_args()
 
 # Function to read logs from a file and convert them into a list of dictionaries
 def read_logs_and_cal_avg(file_path):
+    # Find the model name (assuming it's between underscores and before the file extension)
+    model_name = str(file_path.split('_')[2].split('.')[0])
+    device = str(file_path.split('_')[0].split('/')[3])
     total_cpu_temp = 0
     total_gpu_temp = 0
     power_cpu = 0
@@ -50,10 +53,35 @@ def read_logs_and_cal_avg(file_path):
     print(f"Average Power GPU: {avg_power_gpu:.2f}mW")
     print(f"Average Power TOT: {avg_power_tot:.2f}mW")
     print(f"Average RAM: {avg_ram:.4f}")
-    return {'Avg_CPU_temp':avg_cpu_temp, 'Avg_GPU_temp': avg_gpu_temp, 'Avg_Power_CPU': avg_power_cpu, 'Avg_Power_GPU': avg_power_gpu, 'Avg_CPU_RAM': avg_ram}
+
+    # Specify the output JSON file path
+    output_file_path = 'model_metrics.json'
+    result = [{'Model': model_name,'Device': device,'Avg_CPU_temp':avg_cpu_temp, 'Avg_GPU_temp': avg_gpu_temp, 'Avg_Power_CPU': avg_power_cpu, 'Avg_Power_GPU': avg_power_gpu, 'Avg_CPU_RAM': avg_ram}]
+    
+    try:
+        with open(output_file_path, 'r') as json_file:
+            # Load existing data
+            existing_data = json.load(json_file)
+    except FileNotFoundError:
+        # If file does not exist, start with an empty list
+        existing_data = []
+
+    # Ensure existing data is a list (in case the JSON structure is unexpected)
+    if isinstance(existing_data, list):
+        # Append new data to the list
+        existing_data.extend(result)
+    else:
+        print("Error: Expected a list in the JSON file.")
+        existing_data = result  # Start a new list if format is not as expected
+
+    # Write the updated list back to the file
+    with open(output_file_path, 'w') as json_file:
+        json.dump(existing_data, json_file, indent=4)
+
+    return result
 
 # Path to the log file
-file_path = f'./model-logs/resnext50-32x4d/{args.file_name}'
+file_path = f'./model-logs/resnet-18/{args.file_name}'
 # Read the logs and calculate avg
 status = read_logs_and_cal_avg(file_path)
 print("")

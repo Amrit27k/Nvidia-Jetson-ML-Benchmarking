@@ -1,0 +1,713 @@
+Device: cpu
+Before loading model: 2024-10-30 20:18:50.487099+00:00
+Loaded PyTorch resnext50 pretrained on ImageNet
+
+Loading image: 2024-10-30 20:18:55.225811+00:00
+Image transformation: 2024-10-30 20:18:55.567072+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 1
+Inference time: 2.5914 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2879 seconds
+
+Loading image: 2024-10-30 20:18:58.235261+00:00
+Image transformation: 2024-10-30 20:18:58.250075+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 1
+Inference time: 2.4724 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2747 seconds
+
+Loading image: 2024-10-30 20:19:00.762316+00:00
+Image transformation: 2024-10-30 20:19:00.770860+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 1
+Inference time: 2.3035 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2559 seconds
+
+Loading image: 2024-10-30 20:19:03.106968+00:00
+Image transformation: 2024-10-30 20:19:03.119315+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 1
+Inference time: 2.3645 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2627 seconds
+
+Loading image: 2024-10-30 20:19:05.512628+00:00
+Image transformation: 2024-10-30 20:19:05.524165+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 1
+Inference time: 2.5232 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2804 seconds
+
+Loading image: 2024-10-30 20:19:08.085769+00:00
+Image transformation: 2024-10-30 20:19:08.097350+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 1
+Inference time: 2.4044 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2672 seconds
+
+
+Loading image: 2024-10-30 20:19:20.535087+00:00
+Image transformation: 2024-10-30 20:19:20.548198+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 2
+Inference time: 2.3927 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2659 seconds
+
+Loading image: 2024-10-30 20:19:22.966824+00:00
+Image transformation: 2024-10-30 20:19:22.979602+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 2
+Inference time: 2.7749 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.3083 seconds
+
+Loading image: 2024-10-30 20:19:25.791741+00:00
+Image transformation: 2024-10-30 20:19:25.797681+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 2
+Inference time: 2.5719 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2858 seconds
+
+Loading image: 2024-10-30 20:19:28.406222+00:00
+Image transformation: 2024-10-30 20:19:28.415392+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 2
+Inference time: 2.3850 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2650 seconds
+
+Loading image: 2024-10-30 20:19:30.834524+00:00
+Image transformation: 2024-10-30 20:19:30.842743+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 2
+Inference time: 2.4484 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2720 seconds
+
+Loading image: 2024-10-30 20:19:33.330011+00:00
+Image transformation: 2024-10-30 20:19:33.338837+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 2
+Inference time: 2.7054 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.3006 seconds
+
+
+Loading image: 2024-10-30 20:19:46.082704+00:00
+Image transformation: 2024-10-30 20:19:46.099128+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 3
+Inference time: 2.5583 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2843 seconds
+
+Loading image: 2024-10-30 20:19:48.676876+00:00
+Image transformation: 2024-10-30 20:19:48.689780+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 3
+Inference time: 2.4211 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2690 seconds
+
+Loading image: 2024-10-30 20:19:51.140320+00:00
+Image transformation: 2024-10-30 20:19:51.146348+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 3
+Inference time: 2.7149 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.3017 seconds
+
+Loading image: 2024-10-30 20:19:53.895352+00:00
+Image transformation: 2024-10-30 20:19:53.904857+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 3
+Inference time: 2.7074 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.3008 seconds
+
+Loading image: 2024-10-30 20:19:56.651451+00:00
+Image transformation: 2024-10-30 20:19:56.660228+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 3
+Inference time: 2.7395 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.3044 seconds
+
+Loading image: 2024-10-30 20:19:59.433384+00:00
+Image transformation: 2024-10-30 20:19:59.442801+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 3
+Inference time: 2.2971 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2552 seconds
+
+
+Loading image: 2024-10-30 20:20:11.791621+00:00
+Image transformation: 2024-10-30 20:20:11.807143+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 4
+Inference time: 2.0368 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2263 seconds
+
+Loading image: 2024-10-30 20:20:13.862947+00:00
+Image transformation: 2024-10-30 20:20:13.875698+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 4
+Inference time: 2.5986 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2887 seconds
+
+Loading image: 2024-10-30 20:20:16.518639+00:00
+Image transformation: 2024-10-30 20:20:16.524765+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 4
+Inference time: 2.7521 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.3058 seconds
+
+Loading image: 2024-10-30 20:20:19.304520+00:00
+Image transformation: 2024-10-30 20:20:19.313897+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 4
+Inference time: 2.5217 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2802 seconds
+
+Loading image: 2024-10-30 20:20:21.870511+00:00
+Image transformation: 2024-10-30 20:20:21.879026+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 4
+Inference time: 2.2658 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2518 seconds
+
+Loading image: 2024-10-30 20:20:24.171854+00:00
+Image transformation: 2024-10-30 20:20:24.180447+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 4
+Inference time: 2.4634 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2737 seconds
+
+
+Loading image: 2024-10-30 20:20:36.683232+00:00
+Image transformation: 2024-10-30 20:20:36.689630+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 5
+Inference time: 2.2238 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2471 seconds
+
+Loading image: 2024-10-30 20:20:38.935709+00:00
+Image transformation: 2024-10-30 20:20:38.948411+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 5
+Inference time: 2.6869 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2985 seconds
+
+Loading image: 2024-10-30 20:20:41.677076+00:00
+Image transformation: 2024-10-30 20:20:41.683194+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 5
+Inference time: 2.0709 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2301 seconds
+
+Loading image: 2024-10-30 20:20:43.781941+00:00
+Image transformation: 2024-10-30 20:20:43.791144+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 5
+Inference time: 2.5510 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2834 seconds
+
+Loading image: 2024-10-30 20:20:46.379614+00:00
+Image transformation: 2024-10-30 20:20:46.387899+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 5
+Inference time: 2.4469 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2719 seconds
+
+Loading image: 2024-10-30 20:20:48.869920+00:00
+Image transformation: 2024-10-30 20:20:48.878894+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 5
+Inference time: 2.5850 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2872 seconds
+
+
+Loading image: 2024-10-30 20:21:01.516545+00:00
+Image transformation: 2024-10-30 20:21:01.534982+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 6
+Inference time: 2.2706 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2523 seconds
+
+Loading image: 2024-10-30 20:21:03.827053+00:00
+Image transformation: 2024-10-30 20:21:03.843143+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 6
+Inference time: 2.5909 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2879 seconds
+
+Loading image: 2024-10-30 20:21:06.469969+00:00
+Image transformation: 2024-10-30 20:21:06.476658+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 6
+Inference time: 2.7355 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.3039 seconds
+
+Loading image: 2024-10-30 20:21:09.238866+00:00
+Image transformation: 2024-10-30 20:21:09.248114+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 6
+Inference time: 2.6778 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2975 seconds
+
+Loading image: 2024-10-30 20:21:11.961784+00:00
+Image transformation: 2024-10-30 20:21:11.970388+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 6
+Inference time: 2.5114 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2790 seconds
+
+Loading image: 2024-10-30 20:21:14.519058+00:00
+Image transformation: 2024-10-30 20:21:14.531379+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 6
+Inference time: 2.2477 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2497 seconds
+
+
+Loading image: 2024-10-30 20:21:26.824214+00:00
+Image transformation: 2024-10-30 20:21:26.835165+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 7
+Inference time: 2.2293 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2477 seconds
+
+Loading image: 2024-10-30 20:21:29.081999+00:00
+Image transformation: 2024-10-30 20:21:29.094769+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 7
+Inference time: 2.4103 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2678 seconds
+
+Loading image: 2024-10-30 20:21:31.534623+00:00
+Image transformation: 2024-10-30 20:21:31.543779+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 7
+Inference time: 2.0533 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2281 seconds
+
+Loading image: 2024-10-30 20:21:33.619639+00:00
+Image transformation: 2024-10-30 20:21:33.632618+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 7
+Inference time: 2.3917 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2657 seconds
+
+Loading image: 2024-10-30 20:21:36.058534+00:00
+Image transformation: 2024-10-30 20:21:36.067005+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 7
+Inference time: 2.4136 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2682 seconds
+
+Loading image: 2024-10-30 20:21:38.502362+00:00
+Image transformation: 2024-10-30 20:21:38.510801+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 7
+Inference time: 2.7407 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.3045 seconds
+
+
+Loading image: 2024-10-30 20:21:51.304410+00:00
+Image transformation: 2024-10-30 20:21:51.330286+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 8
+Inference time: 1.9373 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2153 seconds
+
+Loading image: 2024-10-30 20:21:53.285778+00:00
+Image transformation: 2024-10-30 20:21:53.298869+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 8
+Inference time: 2.4341 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2705 seconds
+
+Loading image: 2024-10-30 20:21:55.767730+00:00
+Image transformation: 2024-10-30 20:21:55.773905+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 8
+Inference time: 2.7675 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.3075 seconds
+
+Loading image: 2024-10-30 20:21:58.572678+00:00
+Image transformation: 2024-10-30 20:21:58.582086+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 8
+Inference time: 2.6939 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2993 seconds
+
+Loading image: 2024-10-30 20:22:01.309653+00:00
+Image transformation: 2024-10-30 20:22:01.317959+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 8
+Inference time: 2.4795 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2755 seconds
+
+Loading image: 2024-10-30 20:22:03.837145+00:00
+Image transformation: 2024-10-30 20:22:03.846734+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 8
+Inference time: 2.6865 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2985 seconds
+
+
+Loading image: 2024-10-30 20:22:16.585777+00:00
+Image transformation: 2024-10-30 20:22:16.596443+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 9
+Inference time: 2.4802 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2756 seconds
+
+Loading image: 2024-10-30 20:22:19.094820+00:00
+Image transformation: 2024-10-30 20:22:19.107867+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 9
+Inference time: 2.7786 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.3087 seconds
+
+Loading image: 2024-10-30 20:22:21.923366+00:00
+Image transformation: 2024-10-30 20:22:21.929516+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 9
+Inference time: 2.5641 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2849 seconds
+
+Loading image: 2024-10-30 20:22:24.518038+00:00
+Image transformation: 2024-10-30 20:22:24.527314+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 9
+Inference time: 2.7564 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.3063 seconds
+
+Loading image: 2024-10-30 20:22:27.317763+00:00
+Image transformation: 2024-10-30 20:22:27.326039+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 9
+Inference time: 2.6433 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2937 seconds
+
+Loading image: 2024-10-30 20:22:30.006830+00:00
+Image transformation: 2024-10-30 20:22:30.015614+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 9
+Inference time: 2.2366 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2485 seconds
+
+
+Loading image: 2024-10-30 20:22:42.313486+00:00
+Image transformation: 2024-10-30 20:22:42.324412+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 10
+Inference time: 2.4138 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2682 seconds
+
+Loading image: 2024-10-30 20:22:44.758422+00:00
+Image transformation: 2024-10-30 20:22:44.789939+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 10
+Inference time: 2.2330 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2481 seconds
+
+Loading image: 2024-10-30 20:22:47.075855+00:00
+Image transformation: 2024-10-30 20:22:47.085430+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 10
+Inference time: 2.6602 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2956 seconds
+
+Loading image: 2024-10-30 20:22:49.788048+00:00
+Image transformation: 2024-10-30 20:22:49.802519+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 10
+Inference time: 2.6217 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2913 seconds
+
+Loading image: 2024-10-30 20:22:52.453050+00:00
+Image transformation: 2024-10-30 20:22:52.461659+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 10
+Inference time: 2.7110 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.3012 seconds
+
+Loading image: 2024-10-30 20:22:55.214741+00:00
+Image transformation: 2024-10-30 20:22:55.223490+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 10
+Inference time: 2.0079 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2231 seconds
+
+Total trainable parameters: 25028904
+Loaded PyTorch resnext50 pretrained on ImageNet
+Total FLOPs: 648726080
+
+Loading image: 2024-10-30 20:24:52.390009+00:00
+Image transformation: 2024-10-30 20:24:52.396723+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 1
+Inference time: 2.4196 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2688 seconds
+
+Loading image: 2024-10-30 20:24:54.835571+00:00
+Image transformation: 2024-10-30 20:24:54.848365+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 1
+Inference time: 2.5112 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2790 seconds
+
+Loading image: 2024-10-30 20:24:57.401557+00:00
+Image transformation: 2024-10-30 20:24:57.407488+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 1
+Inference time: 2.6184 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2909 seconds
+
+Loading image: 2024-10-30 20:25:00.057163+00:00
+Image transformation: 2024-10-30 20:25:00.066616+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 1
+Inference time: 2.7373 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.3041 seconds
+
+Loading image: 2024-10-30 20:25:02.838576+00:00
+Image transformation: 2024-10-30 20:25:02.847070+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 1
+Inference time: 2.7173 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.3019 seconds
+
+Loading image: 2024-10-30 20:25:05.598984+00:00
+Image transformation: 2024-10-30 20:25:05.611090+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 1
+Inference time: 2.7759 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.3084 seconds
+
+
+Loading image: 2024-10-30 20:25:18.271617+00:00
+Image transformation: 2024-10-30 20:25:18.278704+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 0.01
+Inference time: 2.1883 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2431 seconds
+
+Loading image: 2024-10-30 20:26:58.366838+00:00
+Image transformation: 2024-10-30 20:26:58.379909+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 0.01
+Inference time: 2.4512 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2724 seconds
+
+
+Loading image: 2024-10-30 20:28:16.101725+00:00
+Image transformation: 2024-10-30 20:28:16.108277+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 0.1
+Inference time: 2.5303 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2811 seconds
+
+Loading image: 2024-10-30 20:28:26.143111+00:00
+Image transformation: 2024-10-30 20:28:26.159131+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 0.1
+Inference time: 2.5630 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2848 seconds
+
+Loading image: 2024-10-30 20:28:36.185523+00:00
+Image transformation: 2024-10-30 20:28:36.203914+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 0.1
+Inference time: 2.3412 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2601 seconds
+
+Loading image: 2024-10-30 20:28:46.232123+00:00
+Image transformation: 2024-10-30 20:28:46.260539+00:00
+Image: cat_2.jpg, Resolution: 356x500, Set FPS: 0.1
+Inference time: 2.5702 seconds
+Accuracy: 99.994%
+Argmax Pred class:Persian cat
+TopK Predicted class:Persian cat
+Latency: 0.2856 seconds
+
+Loading image: 2024-10-30 20:28:56.282849+00:00
+Image transformation: 2024-10-30 20:28:56.290721+00:00
+Image: dog_0.jpg, Resolution: 375x500, Set FPS: 0.1
+Inference time: 2.5509 seconds
+Accuracy: 98.354%
+Argmax Pred class:malamute, malemute, Alaskan malamute
+TopK Predicted class:malamute, malemute, Alaskan malamute
+Latency: 0.2834 seconds
+
+Loading image: 2024-10-30 20:29:06.318795+00:00
+Image transformation: 2024-10-30 20:29:06.327912+00:00
+Image: dog_1.jpg, Resolution: 375x500, Set FPS: 0.1
+Inference time: 2.0847 seconds
+Accuracy: 99.476%
+Argmax Pred class:Newfoundland, Newfoundland dog
+TopK Predicted class:Newfoundland, Newfoundland dog
+Latency: 0.2316 seconds
+
+
+Loading image: 2024-10-30 20:30:07.010497+00:00
+Image transformation: 2024-10-30 20:30:07.017785+00:00
+Image: 1.jpg, Resolution: 499x381, Set FPS: 0.02
+Inference time: 2.4251 seconds
+Accuracy: 52.723%
+Argmax Pred class:toy terrier
+TopK Predicted class:toy terrier
+Latency: 0.2695 seconds
+
+Loading image: 2024-10-30 20:30:57.089546+00:00
+Image transformation: 2024-10-30 20:30:57.113181+00:00
+Image: cat_0.jpg, Resolution: 640x481, Set FPS: 0.02
+Inference time: 2.5763 seconds
+Accuracy: 18.552%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2863 seconds
+
+Loading image: 2024-10-30 20:31:47.145955+00:00
+Image transformation: 2024-10-30 20:31:47.163807+00:00
+Image: cat_1.jpg, Resolution: 441x350, Set FPS: 0.02
+Inference time: 2.2361 seconds
+Accuracy: 80.243%
+Argmax Pred class:tabby, tabby cat
+TopK Predicted class:tabby, tabby cat
+Latency: 0.2485 seconds
+
