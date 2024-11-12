@@ -1,7 +1,7 @@
 import ast
 import re
 import csv
-import datetime
+import datetime # don't remove, using internally.
 
 # Function to convert timedelta to human-readable format
 def format_timedelta(td_str):
@@ -91,7 +91,7 @@ def logs_conversion(input_file, csv_file):
         writer.writerows(data)
 
 input_file = './model-logs/mobilenetv3/gpu_logs_mobilenet_max.txt'
-output_file = 'output_logs_gpu.csv'
+output_file = './model-logs/output_logs_gpu_all.csv'
 # exe_conversion(input_file, output_file)
 logs_conversion(input_file, output_file)
 print(f"Data successfully saved to {output_file}")
