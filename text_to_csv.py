@@ -15,6 +15,8 @@ def format_timedelta(td_str):
 
 def exe_conversion(input_file, output_file):
 
+    # Define patterns to capture loop run count
+    loop_count_pattern = re.compile(r"Loop run count: (?P<loop_count>\d+)")
     # Define a pattern to extract each image's details
     image_data_pattern = re.compile(
         r"Loading image: (?P<load_time>[^\n]+)\n"
@@ -26,7 +28,6 @@ def exe_conversion(input_file, output_file):
         r"Accuracy: (?P<accuracy>[^\n]+)%\n"
         r"Argmax Pred class:(?P<argmax_class>[^\n]+)\n"
         r"TopK Predicted class:(?P<topk_class>[^\n]+)\n"
-        r"Latency: (?P<latency>[^\n]+) seconds"
     )
 
     # Read data from the input file and parse it
@@ -34,22 +35,34 @@ def exe_conversion(input_file, output_file):
         text_data = file.read()
 
     # Extract all image data using the defined regex pattern
-    image_data_matches = image_data_pattern.finditer(text_data)
-
+    # Find all loop counts and image data
+    loop_count_matches = list(loop_count_pattern.finditer(text_data))
+    image_data_matches = list(image_data_pattern.finditer(text_data))
+    model_name = str(input_file.split('_')[3].split('.')[0])
+    device = str(input_file.split('_')[0].split('/')[3])
     # Prepare to write to CSV
     with open(output_file, 'a', newline='') as csvfile:
         fieldnames = [
-            'Load Time', 'Transform Time', 'Predict Time', 'Image Name',
-            'Resolution', 'Inference Time', 'Accuracy', 'Argmax Class', 'TopK Class', 'Latency'
+            'Loop Run Count', 'Model', 'Device', 'Load Time', 'Transform Time', 'Predict Time', 'Image Name',
+            'Resolution', 'Inference Time', 'Accuracy', 'Argmax Class', 'TopK Class'
         ]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         csvfile.write('\n\n')
         writer.writeheader()
 
+        # Initialize loop count index
+        loop_index = 0
         # Write each match to the CSV
         for match in image_data_matches:
+            # Update loop count if the current match position has moved past the current loop count position
+            if loop_index < len(loop_count_matches) - 1 and match.start() > loop_count_matches[loop_index + 1].start():
+                loop_index += 1
+            current_loop_count = loop_count_matches[loop_index].group('loop_count')
             # Parse match into a dictionary
             row = {
+                'Loop Run Count': int(current_loop_count),
+                'Model': model_name,
+                'Device': device,
                 'Load Time': match.group('load_time'),
                 'Transform Time': match.group('transform_time'),
                 'Predict Time': match.group('predict_time'),
@@ -58,13 +71,12 @@ def exe_conversion(input_file, output_file):
                 'Inference Time': float(match.group('inference_time')),
                 'Accuracy': float(match.group('accuracy')),
                 'Argmax Class': match.group('argmax_class').strip(),
-                'TopK Class': match.group('topk_class').strip(),
-                'Latency': float(match.group('latency'))
+                'TopK Class': match.group('topk_class').strip() 
             }
             writer.writerow(row)
 
 
-def logs_conversion(input_file, csv_file):
+def jtop_logs_conversion(input_file, csv_file):
     
     # Read and parse the data from the text file
     data = []
@@ -90,8 +102,10 @@ def logs_conversion(input_file, csv_file):
         writer.writeheader()
         writer.writerows(data)
 
-input_file = './model-logs/mobilenetv3/gpu_logs_mobilenet_max.txt'
-output_file = './model-logs/output_logs_gpu_all.csv'
-# exe_conversion(input_file, output_file)
-logs_conversion(input_file, output_file)
-print(f"Data successfully saved to {output_file}")
+file_sequence = ["mobilenetv3","resnet18","resnet50","resnext50x32","squeezenet"]
+for file in file_sequence:
+    input_file = f'./orin-model-logs/{file}/gpu_logs_exe_{file}_max.txt'
+    output_file = './orin-model-logs/output_logs_exe_GPU_all.csv'
+    exe_conversion(input_file, output_file)
+    # jtop_logs_conversion(input_file, output_file)
+    print(f"Data successfully saved to {output_file}")
