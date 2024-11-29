@@ -7,7 +7,7 @@ import sys
 from PIL import Image
 from jtop import jtop  # Import jtop for power monitoring
 import logging
-logging.basicConfig(level=logging.DEBUG, filename="gpu_logs_exe_squeezenet_trt_fps_f16.txt", filemode="a+",format="")
+logging.basicConfig(level=logging.DEBUG, filename="gpu_logs_exe_squeezenet_trt_fps.txt", filemode="a+",format="")
 # Load Pretrained Model
 model_name = "squeezenet"
 
@@ -46,7 +46,7 @@ def convert_to_trt(model, fp16=False):
     return trt_model
 
 # Convert model to TensorRT (FP16 example)
-model_trt = convert_to_trt(model, fp16=True)
+model_trt = convert_to_trt(model, fp16=False)
 
 # Function to read images from a directory
 def load_images_from_directory(directory, transform):
