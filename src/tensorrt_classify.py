@@ -9,15 +9,12 @@ from torchvision import models, transforms
 from torch2trt import torch2trt
 from PIL import Image
 from signal import signal, SIGINT
+from jtop import jtop
 
 logging.basicConfig(level=logging.DEBUG, filename="gpu_logs_exe_resnet50_trt_max.txt", filemode="a+",format="")
 # Load ImageNet class names
 with open("imagenet-classes.txt", "r") as f:
     class_names = [line.strip() for line in f]
-
-def signal_handler(sig, frame):
-    global stop_execution
-    stop_execution = True
 
 # Preprocessing pipeline
 transform = transforms.Compose([
@@ -76,7 +73,7 @@ def predict(image_path):
         print("During prediction: ", datetime.datetime.now(pytz.timezone('Europe/London')))
         logging.info(f"During prediction: {datetime.datetime.now(pytz.timezone('Europe/London'))}")
         start_time = time.time()
-        output = model_trt(input_tensor)
+        output = model(input_tensor)
         end_time = time.time()
         probabilities = torch.nn.functional.softmax(output[0], dim=0)
 
@@ -116,21 +113,35 @@ def measure_fps(model_trt, mode="FP32"):
     num_iterations = 1000
     start_time = time.time()
     count = 10
-    for _ in range(num_iterations):
-        for input_tensor in preprocessed_images:
-            _ = predict_trt(input_tensor, model_trt)
-            count += 1
-            print(count)
+    with jtop() as jetson:
+        if not jetson.ok():
+            raise RuntimeError("jtop is not running or initialized properly.")
+        
+        power_readings = []
+        for _ in range(num_iterations):
+            for input_tensor in preprocessed_images:
+                _ = predict_trt(input_tensor, model_trt)
+                count += 1
+                print(count)
+                print(f"Jetson stats: {jetson.stats}")
+                logging.info(jetson.stats)
+                # Record power usage
+                power_readings.append(jetson.stats['Power TOT'])
     end_time = time.time()
 
     # Calculate FPS
     total_images = len(preprocessed_images) * num_iterations
     total_time = end_time - start_time
     fps = total_images / total_time
-
+    avg_power_usage = sum(power_readings) / len(power_readings) if power_readings else 0
     print(f"Total Images Processed: {total_images}")
     print(f"Total Time: {total_time:.4f} seconds")
     print(f"Max FPS in {mode}: {fps:.2f}")
+    print(f"Average Total Power Usage: {avg_power_usage:.2f} mW")
+    logging.info(f"Total Images Processed: {total_images}")
+    logging.info(f"Total Time: {total_time:.4f} seconds")
+    logging.info(f"Max FPS in {mode}: {fps:.2f}")
+    logging.info(f"Average Total Power Usage: {avg_power_usage:.2f} mW")
     return fps
 
 # Step 4: Run Predictions on All Images in the Directory
