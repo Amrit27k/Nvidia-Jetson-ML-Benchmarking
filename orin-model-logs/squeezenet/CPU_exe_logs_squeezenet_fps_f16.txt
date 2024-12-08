@@ -1,0 +1,139 @@
+Loaded PyTorch squeezenet pretrained on ImageNet
+Model is set to FP16 for mixed precision inference
+Benchmarking at Target FPS: 0.5
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 240.20 seconds
+Achieved FPS: 0.50 (Target: 0.5)
+Average Inference Time: 0.5013 seconds/frame
+Average Total Power Usage: 4191.47 mW
+
+
+
+Benchmarking at Target FPS: 1
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 120.11 seconds
+Achieved FPS: 1.00 (Target: 1)
+Average Inference Time: 0.4965 seconds/frame
+Average Total Power Usage: 4222.67 mW
+
+
+
+Benchmarking at Target FPS: 1.5
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 80.08 seconds
+Achieved FPS: 1.50 (Target: 1.5)
+Average Inference Time: 0.4977 seconds/frame
+Average Total Power Usage: 4527.45 mW
+
+
+
+Benchmarking at Target FPS: 2.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.09 seconds
+Achieved FPS: 2.00 (Target: 2.0)
+Average Inference Time: 0.4958 seconds/frame
+Average Total Power Usage: 4686.23 mW
+
+
+
+Benchmarking at Target FPS: 2.5
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 59.93 seconds
+Achieved FPS: 2.00 (Target: 2.5)
+Average Inference Time: 0.4992 seconds/frame
+Average Total Power Usage: 4701.55 mW
+
+
+
+Benchmarking at Target FPS: 3.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.02 seconds
+Achieved FPS: 2.00 (Target: 3.0)
+Average Inference Time: 0.4999 seconds/frame
+Average Total Power Usage: 4695.98 mW
+
+
+
+Benchmarking at Target FPS: 5.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.06 seconds
+Achieved FPS: 2.00 (Target: 5.0)
+Average Inference Time: 0.5002 seconds/frame
+Average Total Power Usage: 4710.60 mW
+
+
+
+Benchmarking at Target FPS: 7.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.02 seconds
+Achieved FPS: 2.00 (Target: 7.0)
+Average Inference Time: 0.4999 seconds/frame
+Average Total Power Usage: 4702.15 mW
+
+
+
+Benchmarking at Target FPS: 9.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.01 seconds
+Achieved FPS: 2.00 (Target: 9.0)
+Average Inference Time: 0.4998 seconds/frame
+Average Total Power Usage: 4705.40 mW
+
+
+
+Benchmarking at Target FPS: 11.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.06 seconds
+Achieved FPS: 2.00 (Target: 11.0)
+Average Inference Time: 0.5002 seconds/frame
+Average Total Power Usage: 4709.95 mW
+
+
+
+Benchmarking at Target FPS: 12.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.05 seconds
+Achieved FPS: 2.00 (Target: 12.0)
+Average Inference Time: 0.5001 seconds/frame
+Average Total Power Usage: 4685.43 mW
+
+
+
+Benchmarking at Target FPS: 14.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.05 seconds
+Achieved FPS: 2.00 (Target: 14.0)
+Average Inference Time: 0.5001 seconds/frame
+Average Total Power Usage: 4692.90 mW
+
+
+
+Benchmarking at Target FPS: 16.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.04 seconds
+Achieved FPS: 2.00 (Target: 16.0)
+Average Inference Time: 0.4999 seconds/frame
+Average Total Power Usage: 4686.08 mW
+
+
+
+Benchmarking at Target FPS: 18.0
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 60.05 seconds
+Achieved FPS: 2.00 (Target: 18.0)
+Average Inference Time: 0.5000 seconds/frame
+Average Total Power Usage: 4684.13 mW

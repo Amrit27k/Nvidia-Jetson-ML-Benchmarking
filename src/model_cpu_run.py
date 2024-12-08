@@ -21,7 +21,6 @@ def read_classes():
         categories = [s.strip() for s in f.readlines()]
     return categories
 
-# device = "cuda" if torch.cuda.is_available() else "cpu"
 device = "cpu"
 stop_execution = False
 logging.info(f"Device: {device}")

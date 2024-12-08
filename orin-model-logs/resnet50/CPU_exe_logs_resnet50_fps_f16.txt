@@ -1,0 +1,29 @@
+Loaded PyTorch resnet50 pretrained on ImageNet
+Model is set to FP16 for mixed precision inference
+Benchmarking at Target FPS: 0.5
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 854.44 seconds
+Achieved FPS: 0.14 (Target: 0.5)
+Average Inference Time: 7.1201 seconds/frame
+Average Total Power Usage: 4914.67 mW
+
+
+
+Benchmarking at Target FPS: 1
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 849.04 seconds
+Achieved FPS: 0.14 (Target: 1)
+Average Inference Time: 7.0751 seconds/frame
+Average Total Power Usage: 4917.33 mW
+
+
+
+Benchmarking at Target FPS: 1.5
+
+Loaded jetson_variables variables
+Total Time for 20 x 6 frames: 833.02 seconds
+Achieved FPS: 0.14 (Target: 1.5)
+Average Inference Time: 6.9416 seconds/frame
+Average Total Power Usage: 4914.00 mW
