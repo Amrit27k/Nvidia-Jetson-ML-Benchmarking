@@ -12,7 +12,7 @@ model_name = "squeezenet"
 
 # Step 1: Load Pretrained Model
 if model_name == "resnet50":
-    model = models.resnet50(weights= models.ResNet50_Weights.IMAGENET1K_V1).eval()
+    model = models.resnet50(pretrained=True).eval()
 elif model_name == "mobilenetv3":
     model = models.mobilenet_v3_small(weights=models.MobileNet_V3_Small_Weights.IMAGENET1K_V1).eval()
 elif model_name == "resnet18":
@@ -24,6 +24,11 @@ elif model_name == "squeezenet":
 else:
     print(f"Model {model_name} not supported yet.")
     sys.exit(1)
+
+float_input = "FP32"
+if float_input == "FP16":
+    model.half()
+
 logging.info(f"Loaded PyTorch {model_name} pretrained on ImageNet")
 # Preprocessing pipeline
 transform = transforms.Compose([
@@ -41,6 +46,8 @@ def load_images_from_directory(directory, transform):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')):
             image_path = os.path.join(directory, filename)
             image = Image.open(image_path).convert("RGB")
+            if float_input == "FP16":
+                input_tensor = transform(image).unsqueeze(0).half()
             input_tensor = transform(image).unsqueeze(0)
             images.append((filename, input_tensor))
     return images
