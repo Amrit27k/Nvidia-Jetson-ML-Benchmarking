@@ -1,0 +1,9 @@
+orin-model-logs/
+model-logs/
+*.txt
+*.csv
+*.xlsx
+rabbitmq-data/
+test.py
+test2.py
+prac1.py

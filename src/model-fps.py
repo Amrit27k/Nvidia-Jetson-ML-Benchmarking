@@ -6,9 +6,9 @@ import sys
 from PIL import Image
 from jtop import jtop  # Import jtop for power monitoring
 import logging
-logging.basicConfig(level=logging.DEBUG, filename="cpu_logs_exe_squeezenet_fps.txt", filemode="a+",format="")
+logging.basicConfig(level=logging.DEBUG, filename="gpu_logs_exe_resnet18_fps.txt", filemode="a+",format="")
 # Load Pretrained Model
-model_name = "squeezenet"
+model_name = "resnet18"
 
 # Step 1: Load Pretrained Model
 if model_name == "resnet50":
@@ -26,9 +26,11 @@ else:
     sys.exit(1)
 
 float_input = "FP32"
+device = "gpu"
 if float_input == "FP16":
     model.half()
-
+model = model.to(device)
+model.eval()
 logging.info(f"Loaded PyTorch {model_name} pretrained on ImageNet")
 # Preprocessing pipeline
 transform = transforms.Compose([
@@ -57,7 +59,7 @@ def benchmark_fps_with_power(model, image_tensors, target_fps, num_frames=100):
     frame_times = []
     delay_per_frame = 1.0 / target_fps  # Time delay to simulate target FPS
 
-    for _ in range(5):
+    for _ in range(10):
         for _, input_tensor in image_tensors:
             with torch.no_grad():
                 _ = model(input_tensor)
@@ -68,7 +70,8 @@ def benchmark_fps_with_power(model, image_tensors, target_fps, num_frames=100):
             raise RuntimeError("jtop is not running or initialized properly.")
 
         power_readings = []
-
+        if target_fps <= 5:
+            num_frames = 20
         start_time = time.time()
         for i in range(num_frames):
             for _, input_tensor in image_tensors:
@@ -83,8 +86,8 @@ def benchmark_fps_with_power(model, image_tensors, target_fps, num_frames=100):
                 # Enforce delay to match target FPS
                 sleep_time = max(0, delay_per_frame - frame_duration)
                 time.sleep(sleep_time) 
-                print(f"Jetson stats: {jetson.stats}")
-                logging.info(jetson.stats)
+                #print(f"Jetson stats: {jetson.stats}")
+                #logging.info(jetson.stats)
                 # Record power usage
                 power_readings.append(jetson.stats['Power TOT'])  # Collect GPU power usage (in mW)
 
@@ -112,8 +115,10 @@ else:
     print(f"Loaded {len(image_tensors)} images from directory: {image_directory}")
 
     # Test model with FPS ranging from 1 to 1000
-    fps_values = [0.5, 1, 1.5, 2.0, 2.5, 3.0, 5.0, 7.0, 9.0, 11.0, 12.0]  # Define FPS to test
+    # fps_values = [0.5, 1, 1.5, 2.0, 2.5, 3.0, 5.0, 7.0, 9.0, 11.0, 12.0]
+    # Define FPS to test
+    fps_values = [1, 5, 10, 20, 30, 50, 100, 150, 200, 250, 300]
     for fps in fps_values:
-        benchmark_fps_with_power(model, image_tensors, target_fps=fps, num_frames=20)
+        benchmark_fps_with_power(model, image_tensors, target_fps=fps, num_frames=100)
         time.sleep(30)
         logging.info("\n\n")

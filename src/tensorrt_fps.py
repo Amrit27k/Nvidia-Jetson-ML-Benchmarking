@@ -64,7 +64,7 @@ def benchmark_fps_with_power(model, image_tensors, target_fps, num_frames=100):
     frame_times = []
     delay_per_frame = 1.0 / target_fps  # Time delay to simulate target FPS
 
-    for _ in range(5):
+    for _ in range(10):
         for _, input_tensor in image_tensors:
             with torch.no_grad():
                 _ = model(input_tensor)
@@ -77,6 +77,9 @@ def benchmark_fps_with_power(model, image_tensors, target_fps, num_frames=100):
         power_readings = []
 
         start_time = time.time()
+        if target_fps <=5:
+            num_frames = 100
+        
         for i in range(num_frames):
             for _, input_tensor in image_tensors:
                 frame_start = time.time()
@@ -90,8 +93,8 @@ def benchmark_fps_with_power(model, image_tensors, target_fps, num_frames=100):
                 # Enforce delay to match target FPS
                 sleep_time = max(0, delay_per_frame - frame_duration)
                 time.sleep(sleep_time)
-                print(f"Jetson stats: {jetson.stats}")
-                logging.info(jetson.stats)
+                # print(f"Jetson stats: {jetson.stats}")
+                # logging.info(jetson.stats)
                 # Record power usage
                 power_readings.append(jetson.stats['Power TOT'])  # Collect GPU power usage (in mW)
 
@@ -119,8 +122,8 @@ else:
     print(f"Loaded {len(image_tensors)} images from directory: {image_directory}")
 
     # Test model with FPS ranging from 1 to 1000
-    fps_values = [1, 10, 30, 60, 120, 240, 500, 1000]  # Define FPS to test
+    fps_values = [1, 10, 30, 60, 120, 240, 500, 600, 800, 1000] # Define target FPS values
     for fps in fps_values:
-        benchmark_fps_with_power(model_trt, image_tensors, target_fps=fps, num_frames=20)
+        benchmark_fps_with_power(model_trt, image_tensors, target_fps=fps, num_frames=100)
         time.sleep(30)
         logging.info("\n\n")

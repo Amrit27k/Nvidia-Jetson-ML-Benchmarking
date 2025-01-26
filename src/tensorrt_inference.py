@@ -9,7 +9,12 @@ import pytz
 import os
 import logging
 import sys
+import argparse
 
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--image', dest='file_name', type=str, help='Add file_name')
+args = parser.parse_args()
 logging.basicConfig(level=logging.DEBUG, filename="gpu_logs_exe_mobilenet_max.txt", filemode="a+",format="")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -128,8 +133,10 @@ def predict(model, image_path, device):
 print("Before loading model: ",datetime.datetime.now(pytz.timezone('Europe/London')))
 logging.info(f"Before loading model: {datetime.datetime.now(pytz.timezone('Europe/London'))}")
 # Load the pre-trained Mobilenetv3 model
-model = load_model("mobilenetv3", device)
+model = load_model("squeezenet", device)
 # Set the model to evaluation mode
 categories = read_classes()
-img_path = "./images/cat_0.jpg"
+img_path = args.file_name
+print("Image Path: ",img_path)
 predict(model, img_path, device)
+print("Prediction Done: ",datetime.datetime.now(pytz.timezone('Europe/London')))
