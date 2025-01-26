@@ -110,14 +110,15 @@ def measure_fps(model_trt, mode="FP32"):
             _ = predict_trt(input_tensor, model_trt)
 
     # Measure inference time over multiple iterations
-    num_iterations = 1000
-    start_time = time.time()
+    num_iterations = 100
+    
     count = 10
     with jtop() as jetson:
         if not jetson.ok():
             raise RuntimeError("jtop is not running or initialized properly.")
         
         power_readings = []
+        start_time = time.time()
         for _ in range(num_iterations):
             for input_tensor in preprocessed_images:
                 _ = predict_trt(input_tensor, model_trt)
