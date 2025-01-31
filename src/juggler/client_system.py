@@ -57,7 +57,7 @@ if __name__ == "__main__":
     print("Sending image to Jetson Orin...")
     # Send to Jetson Orin
     publisher.publish_image(
-        "E:/NCL/NCL-Intern/Jetson_Benchmarking/images/cat_2.jpg",
+        "E:/NCL/NCL-Intern/Jetson_Benchmarking/images/cat_1.jpg",
         "jetson_orin",
         additional_params={"model": "yolov5"}
     )

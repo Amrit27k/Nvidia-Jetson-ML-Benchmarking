@@ -1,62 +1,192 @@
-# edge_device.py (for Jetson)
-import pika
-import json
-import base64
-from PIL import Image
-import io
+import sys
 import os
-import docker
+import time
+import cv2
+import numpy as np
+import torch
+import psutil
+import threading
+import torchvision.models as models
+from enum import Enum
+from hailo_platform import (HEF, ConfigureParams, FormatType, HailoSchedulingAlgorithm, HailoStreamInterface,
+                            InferVStreams, InputVStreamParams, OutputVStreamParams, VDevice)
 
-class EdgeDeviceConsumer:
-    def __init__(self, host='localhost', device_type='jetson_orin', queue_prefix='edge_device'):
-        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host=host))
-        self.channel = self.connection.channel()
-        
-        self.queue_name = f"{queue_prefix}_{device_type.split('_')[-1]}"
-        self.channel.queue_declare(queue=self.queue_name, durable=True)
-        
-        self.docker_client = docker.from_env()
+# Hardcoded model paths for Hailo models
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATHS = {
+    "RESNET50": os.path.join(BASE_DIR, "models", "resnet_v1_50.hef"),
+    "MOBILENETV3": os.path.join(BASE_DIR, "models", "mobilenet_v3.hef"),
+    "RESNET18": os.path.join(BASE_DIR, "models", "resnet_v1_18.hef"),
+    "RESNEXT": os.path.join(BASE_DIR, "models", "resnext50_32x4d.hef"),
+    "SQUEEZENET": os.path.join(BASE_DIR, "models", "squeezenet_v1.1.hef")
+}
+
+class ModelName(Enum):
+    RESNET18 = "ResNet18"
+    RESNET50 = "ResNet50"
+    RESNEXT = "ResNeXt-50-32x4d"
+    MOBILENETV3 = "MobileNetV3"
+    SQUEEZENET = "SqueezeNetV1.1"
+
+class ContinuousCPUMonitor:
+    def __init__(self, interval=0.01):  # Monitoring interval set to 10 ms
+        self.interval = interval
+        self.cpu_usage = []
+        self.running = False
+        self.thread = None
+
+    def start(self):
+        self.cpu_usage = []
+        self.running = True
+        self.thread = threading.Thread(target=self._monitor)
+        self.thread.start()
+
+    def _monitor(self):
+        while self.running:
+            self.cpu_usage.append(psutil.cpu_percent(interval=None))
+            time.sleep(self.interval)
+
+    def stop(self):
+        self.running = False
+        if self.thread:
+            self.thread.join()
+
+    def get_average_cpu_usage(self):
+        return sum(self.cpu_usage) / len(self.cpu_usage) if self.cpu_usage else 0
+
+def load_model_by_enum(model_name, accelerate=False):
+    if not accelerate:
+        if model_name == ModelName.RESNET50:
+            model = models.resnet50(pretrained=True)
+        elif model_name == ModelName.MOBILENETV3:
+            model = models.mobilenet_v3_small(pretrained=True)
+        elif model_name == ModelName.RESNET18:
+            model = models.resnet18(pretrained=True)
+        elif model_name == ModelName.RESNEXT:
+            model = models.resnext50_32x4d(pretrained=True)
+        elif model_name == ModelName.SQUEEZENET:
+            model = models.squeezenet1_1(pretrained=True)
+        else:
+            print(f"Model {model_name} not supported yet.")
+            sys.exit(1)
+        model.eval()
+        print(f"Loaded PyTorch {model_name.value} pretrained on ImageNet")
+        return model, 'pytorch'
     
-    
-    def process_message(self, ch, method, properties, body):
+    else:
         try:
-            message = json.loads(body)
-            image_data = base64.b64decode(message['image'])
-            image = Image.open(io.BytesIO(image_data))
-            
-            temp_path = f"/tmp/{message['filename']}"
-            image.save(temp_path)
-            
-            # Add your model inference code here
-            # Example:
-            # model.predict(temp_path)
-            
-            ch.basic_ack(delivery_tag=method.delivery_tag)
-            os.remove(temp_path)
-            
-        except Exception as e:
-            print(f"Error processing message: {e}")
-            ch.basic_nack(delivery_tag=method.delivery_tag, requeue=True)
-            
-    def start_consuming(self):
-        self.channel.basic_qos(prefetch_count=1)
-        self.channel.basic_consume(
-            queue=self.queue_name,
-            on_message_callback=self.process_message
-        )
-        print(f" [*] Waiting for messages on {self.queue_name}")
-        self.channel.start_consuming()
-    
-    def close(self):
-        self.connection.close()
+            model_path = MODEL_PATHS[model_name.name]
+        except KeyError:
+            print(f"Hailo model path not found for {model_name.name}")
+            sys.exit(1)
 
-# Run this on Jetson devices
-if __name__ == "__main__":
-    consumer = EdgeDeviceConsumer(
-        host='your_rabbitmq_server_ip',
-        device_type='raspberry_pi'
-    )
+        params = VDevice.create_params()
+        params.scheduling_algorithm = HailoSchedulingAlgorithm.NONE
+        target = VDevice(params=params)
+
+        hef = HEF(model_path)
+        configure_params = ConfigureParams.create_from_hef(hef=hef, interface=HailoStreamInterface.PCIe)
+        network_groups = target.configure(hef, configure_params)
+        network_group = network_groups[0]
+        network_group_params = network_group.create_params()
+
+        input_vstreams_params = InputVStreamParams.make(network_group, quantized=False, format_type=FormatType.FLOAT32)
+        output_vstreams_params = OutputVStreamParams.make(network_group, quantized=True, format_type=FormatType.UINT8)
+
+        input_vstream_info = hef.get_input_vstream_infos()[0]
+        output_vstream_info = hef.get_output_vstream_infos()[0]
+        image_height, image_width, channels = input_vstream_info.shape
+
+        return (target, network_group, network_group_params, input_vstreams_params, output_vstreams_params, 
+                input_vstream_info, output_vstream_info, (image_height, image_width, channels)), 'hailo'
+
+def preprocess_image(image_path, target_size, framework='pytorch'):
+    img = cv2.imread(image_path)
+    if img is None:
+        print(f"Failed to load image: {image_path}")
+        return None, None
+    original_resolution = img.shape[:2]
+    img = cv2.resize(img, target_size)
+
+    if framework == 'pytorch':
+        img = img.transpose(2, 0, 1)
+        img = torch.tensor(img, dtype=torch.float32) / 255.0
+        img = img.unsqueeze(0)
+    elif framework == 'hailo':
+        img = img.astype(np.float32) / 255.0
+        img = np.expand_dims(img, axis=0)
+    return img, original_resolution
+
+def classify_images(model, images_dir, fps, framework):
+    target_size = (224, 224)  # Most models use this input size
+    interval = 1 / fps
+    cpu_monitor = ContinuousCPUMonitor(interval=0.01)
+
+    for image_file in sorted(os.listdir(images_dir)):
+        image_path = os.path.join(images_dir, image_file)
+        
+        if not image_file.endswith(('.jpg', '.jpeg', '.png')):
+            continue
+
+        img, original_resolution = preprocess_image(image_path, target_size, framework)
+        if img is None:
+            continue
+
+        cpu_monitor.start()
+        start_inference_time = time.time()
+
+        if framework == 'pytorch':
+            with torch.no_grad():
+                predictions = model(img)
+                predicted_class = predictions.argmax(dim=1).item()
+
+        elif framework == 'hailo':
+            (target, network_group, network_group_params, input_vstreams_params, 
+             output_vstreams_params, input_vstream_info, output_vstream_info, input_shape) = model
+            
+            input_data = {input_vstream_info.name: img}
+            with InferVStreams(network_group, input_vstreams_params, output_vstreams_params) as infer_pipeline:
+                with network_group.activate(network_group_params):
+                    infer_results = infer_pipeline.infer(input_data)
+                    predicted_class = np.argmax(infer_results[output_vstream_info.name])
+
+        end_inference_time = time.time()
+        inference_time = end_inference_time - start_inference_time
+      
+        if inference_time < interval:
+            time.sleep(interval - inference_time)
+
+        cpu_monitor.stop()
+        avg_cpu_usage = cpu_monitor.get_average_cpu_usage()
+
+        print(f"Image: {image_file}, Model Resolution: {target_size[1]}x{target_size[0]}, "
+              f"Framework: {framework.upper()}, Set FPS: {fps}, Inference time: {inference_time:.4f} seconds, "
+              f"Predicted class: {predicted_class}, "
+              f"Average CPU Usage: {avg_cpu_usage:.2f}%, "
+              f"Start Time: {start_inference_time}, End Time: {end_inference_time}")
+
+def main():
+    if len(sys.argv) < 4:
+        print("Usage: python <script_name.py> <model_name> <fps> <images_directory_path> [--accelerate]")
+        sys.exit(1)
+    
+    model_name_input = sys.argv[1].upper()
+    fps = float(sys.argv[2])
+    images_dir = sys.argv[3]
+    accelerate = '--accelerate' in sys.argv
+
     try:
-        consumer.start_consuming()
-    except KeyboardInterrupt:
-        consumer.close()
+        model_name = ModelName[model_name_input]
+    except KeyError:
+        print(f"Invalid model name: {model_name_input}. Available options: {', '.join([m.name for m in ModelName])}")
+        sys.exit(1)
+
+    if not os.path.exists(images_dir):
+        print(f"Directory does not exist: {images_dir}")
+        sys.exit(1)
+
+    model, framework = load_model_by_enum(model_name, accelerate)
+    classify_images(model, images_dir, fps, framework)
+
+if __name__ == "__main__":
+    main()

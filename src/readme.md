@@ -13,3 +13,8 @@ sudo docker exec -it 7b6a bash
 scp -r images newcastleuni@192.168.50.94:nvdli-data
 scp imagenet-classes.txt newcastleuni@192.168.50.94:nvdli-data
 sudo docker cp imagenet-classes.txt 8a84:/home
+
+
+Raspberry Pi
+ssh pi@192.168.50.203
+raspberry
