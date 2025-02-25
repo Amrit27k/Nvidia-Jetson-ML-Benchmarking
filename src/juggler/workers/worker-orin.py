@@ -108,7 +108,7 @@ class MLInferenceService:
 
             return input_batch, width, height
         except Exception as e:
-            logging.error(f"Error preprocessing image {image_path}: {str(e)}")
+            logging.error(f"Error preprocessing image {image}: {str(e)}")
             raise
 
     def predict(self, image_data, image_name, model_name):
@@ -156,25 +156,25 @@ class MLInferenceService:
             logging.info(f"Received prediction request for: {image_name}")
             result = self.predict(image_data, image_name, model_name)
             reply_to = str(properties.reply_to) if properties.reply_to else ''
-            # # Send result back through reply queue
-            # ch.basic_publish(
-            #     exchange='',
-            #     routing_key=reply_to,
-            #     properties=pika.BasicProperties(correlation_id=properties.correlation_id),
-            #     body=json.dumps(result)
-            # )
+            # Send result back through reply queue
+            ch.basic_publish(
+                exchange='',
+                routing_key=reply_to,
+                properties=pika.BasicProperties(correlation_id=properties.correlation_id),
+                body=json.dumps(result)
+            )
             ch.basic_ack(delivery_tag=method.delivery_tag)
 
         except Exception as e:
             logging.error(f"Error processing message: {str(e)}")
             reply_to = str(properties.reply_to) if properties.reply_to else ''
             # Send error response
-            # ch.basic_publish(
-            #     exchange='',
-            #     routing_key=reply_to,
-            #     properties=pika.BasicProperties(correlation_id=properties.correlation_id),
-            #     body=json.dumps({'error': str(e)})
-            # )
+            ch.basic_publish(
+                exchange='',
+                routing_key=reply_to,
+                properties=pika.BasicProperties(correlation_id=properties.correlation_id),
+                body=json.dumps({'error': str(e)})
+            )
             ch.basic_ack(delivery_tag=method.delivery_tag)
 
     def start(self):

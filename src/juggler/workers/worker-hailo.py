@@ -16,12 +16,6 @@ from hailo_platform import (HEF, ConfigureParams, FormatType, HailoSchedulingAlg
                             OutputVStreamParams, VDevice)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# class ModelName(Enum):
-#     RESNET50 = "Resnet50"
-#     MOBILENETV3 = "Mobilenetv3"
-#     RESNET18 = "Resnet18"
-#     RESNEXT = "ResNeXt-50-32x4d"
-#     SQUEEZENET = "SqueezeNetV1.1"
 
 class HailoMLInferenceService:
     def __init__(self, 
@@ -176,9 +170,9 @@ class HailoMLInferenceService:
             data = json.loads(body)
             image_name = data.get('image_name')
             image_data = data.get('image_data')
-
+            model_name = data.get('model_name', 'squeezenet')
             logging.info(f"Received prediction request for: {image_name}")
-            result = self.predict(image_data, image_name)
+            result = self.predict(image_data, image_name, model_name)
             reply_to = str(properties.reply_to) if properties.reply_to else ''
             
             ch.basic_publish(

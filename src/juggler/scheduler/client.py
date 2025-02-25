@@ -58,7 +58,7 @@ class MLInferenceClient:
             logging.error(f"Error encoding image {image_path}: {str(e)}")
             raise
 
-    def predict(self, image_path: str, device_type, model_name:str = 'squeezenet', timeout: int = 120) -> Optional[Dict[str, Any]]:
+    def predict(self, image_path: str, device_type, model_name:str = 'squeezenet', timeout: int = 10) -> Optional[Dict[str, Any]]:
         """
         Send a prediction request for an image and wait for the response
         
@@ -102,19 +102,19 @@ class MLInferenceClient:
             print(f"Image classification time: {time.time() - start_processing}")
             # Wait for the response with timeout
             start_time = time.time()
-            # while self.responses[correlation_id] is None:
-            #     self.connection.process_data_events()
-            #     if time.time() - start_time > timeout:
-            #         del self.responses[correlation_id]
-            #         logging.error(f"Request timed out for image: {image_path}")
-            #         return None
-            #     time.sleep(0.1)
+            while self.responses[correlation_id] is None:
+                self.connection.process_data_events()
+                if time.time() - start_time > timeout:
+                    del self.responses[correlation_id]
+                    logging.error(f"Request timed out for image: {image_path}")
+                    return None
+                time.sleep(0.1)
             
             # Get and clean up the response
-            # response = self.responses[correlation_id]
-            # del self.responses[correlation_id]
+            response = self.responses[correlation_id]
+            del self.responses[correlation_id]
             
-            return None
+            return response
             
         except Exception as e:
             logging.error(f"Error during prediction request: {str(e)}")
@@ -124,7 +124,7 @@ class MLInferenceClient:
         """Close the RabbitMQ connection"""
         self.connection.close()
 
-def process_batch(image_paths: list, device_type, model_name: str = 'squeezenet', batch_size: int = 10):
+def process_batch(image_paths: list, device_type, model_name: str = 'squeezenet', batch_size: int = 20, num_iterations: int = 100):
     """
     Process a batch of images with the ML service
     
@@ -134,17 +134,20 @@ def process_batch(image_paths: list, device_type, model_name: str = 'squeezenet'
     """
     client = MLInferenceClient()
     results = []
+    total_time = 0
     
     try:
         # Process images in batches
-        while True:
+        for _ in range(num_iterations):
+            start_iteration = time.time()
             for i in range(0, len(image_paths), batch_size):
                 batch = image_paths[i:i + batch_size]
                 logging.info(f"Processing batch {i//batch_size + 1}")
                 
                 for image_path in batch:
-                    
+                    start_request = time.time()
                     result = client.predict(image_path, device_type, model_name)
+                    end_request = time.time()
                     if result:
                         if 'error' in result:
                             logging.error(f"Error processing {image_path}: {result['error']}")
@@ -162,11 +165,18 @@ def process_batch(image_paths: list, device_type, model_name: str = 'squeezenet'
                             results.append(result)
                     else:
                         logging.error(f"No response received for {image_path}")
+                    logging.info(f"Request time for {image_path} : {end_request - start_request}") # Log time for each request
+            end_iteration = time.time()  # End time for the current iteration
+            iteration_time = end_iteration - start_iteration
+            total_time += iteration_time
+            logging.info(f"Iteration {_ + 1} took {iteration_time:.2f} seconds")  # Log time for each iteration
                         
     finally:
         client.close()
-        
-    return results
+
+    avg_time_per_iteration = total_time / num_iterations if num_iterations > 0 else 0
+    logging.info(f"Average time per iteration: {avg_time_per_iteration:.2f} seconds")    
+    return results, avg_time_per_iteration
 
 if __name__ == "__main__":
     # Example usage
@@ -181,6 +191,6 @@ if __name__ == "__main__":
     device = 'raspberry_pi'
     model = 'squeezenet'
     
-    results = process_batch(image_paths, device_type=device, model_name=model)
+    results, avg_time = process_batch(image_paths, device_type=device, model_name=model)
     print(f"Successfully processed {len(results)} images with {device} & model {model}")
-    time.sleep(10)
+    print(f"Average time per iteration: {avg_time:.2f} seconds")

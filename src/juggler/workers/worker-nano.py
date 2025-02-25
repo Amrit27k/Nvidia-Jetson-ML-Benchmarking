@@ -30,7 +30,8 @@ class MLInferenceService:
         logging.info(f"Using processor: {self.device} and queue: {self.queue_name}")
 
         # Load model once during initialization
-        self.model = self._load_model(model_name)
+        self.model = None
+        self.current_model_name = None
         self.model_lock = Lock()  # For thread-safe predictions
 
         # Load ImageNet classes
@@ -110,17 +111,20 @@ class MLInferenceService:
             logging.error(f"Error preprocessing image {image_path}: {str(e)}")
             raise
 
-    def predict(self, image_data, image_name):
+    def predict(self, image_data, image_name, model_name):
         try:
             image = self.decode_image(image_data, image_name)
             img_tensor, width, height = self.preprocess_image(image)
 
             # Use lock for thread-safe prediction
             with self.model_lock:
-                with torch.no_grad():
-                    start_time = datetime.datetime.now()
-                    outputs = self.model(img_tensor)
-                    inference_time = (datetime.datetime.now() - start_time).total_seconds()
+                if self.current_model_name != model_name:
+                    self.model = self._load_model(model_name)
+                    self.current_model_name = model_name
+            with torch.no_grad():
+                start_time = datetime.datetime.now()
+                outputs = self.model(img_tensor)
+                inference_time = (datetime.datetime.now() - start_time).total_seconds()
 
             # Get top-5 predictions
             probabilities, indices = outputs.topk(5)
@@ -133,6 +137,7 @@ class MLInferenceService:
 
             return {
                 'device': self.queue_name,
+                'model': model_name,
                 'predictions': predictions,
                 'inference_time': inference_time,
                 'image_size': f"{width}x{height}"
@@ -146,9 +151,9 @@ class MLInferenceService:
             data = json.loads(body)
             image_name = data.get('image_name')
             image_data = data.get('image_data')
-
+            model_name = data.get('model_name', 'squeezenet')
             logging.info(f"Received prediction request for: {image_name} from queue: {self.queue_name}")
-            result = self.predict(image_data, image_name)
+            result = self.predict(image_data, image_name, model_name)
             reply_to = str(properties.reply_to) if properties.reply_to else ''
             # Send result back through reply queue
             ch.basic_publish(
